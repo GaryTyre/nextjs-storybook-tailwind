@@ -31,7 +31,7 @@ function Index() {
 
                 {Array.apply(0, Array(5)).map(function (x, i) {
                   return (
-                    <tr>
+                    <tr key={i}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
@@ -65,8 +65,6 @@ function Index() {
                   </tr>
                   )
                 })}
-
-                  
                 </tbody>
               </table>
             </div>
