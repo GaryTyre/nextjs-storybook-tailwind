@@ -2,8 +2,8 @@
 import { ChevronRightIcon, HomeIcon } from '@heroicons/react/solid'
 
 const pages = [
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Project Nero', href: '#', current: true },
+  { name: 'Supplier List', href: '#', current: false },
+  { name: 'Supplier A', href: '#', current: true },
 ]
 
 export default function Breadcrumbs() {
