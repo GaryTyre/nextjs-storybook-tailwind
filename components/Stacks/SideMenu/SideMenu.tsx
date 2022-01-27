@@ -1,3 +1,5 @@
+import React, { Fragment } from 'react'
+
 import {
   CogIcon,
   CollectionIcon,

@@ -1,5 +1,5 @@
-import { Fragment} from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import React, { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
 
 import {
     CogIcon,
@@ -58,7 +58,7 @@ export const SideMenuMobile = ({ isOpen, closeMenu }: Props): JSX.Element => {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
               >
-                <div className="relative max-w-xs w-full bg-gray-700 pt-5 pb-4 flex-1 flex flex-col">
+                <div className="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-gray-700">
                     <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-300"
@@ -68,26 +68,26 @@ export const SideMenuMobile = ({ isOpen, closeMenu }: Props): JSX.Element => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                     >
-                    <div className="absolute top-1 right-0 -mr-14 p-1">
+                    <div className="absolute right-0 p-1 top-1 -mr-14">
                         <button
                         type="button"
-                        className="h-12 w-12 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white"
+                        className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:ring-2 focus:ring-white"
                         onClick={() => closeMenu }
                         >
-                        <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                        <XIcon className="w-6 h-6 text-white" aria-hidden="true" />
                         <span className="sr-only">Close sidebar</span>
                         </button>
                     </div>
                     </Transition.Child>
-                    <div className="flex-shrink-0 px-4 flex items-center">
+                    <div className="flex items-center flex-shrink-0 px-4">
                     <img
-                        className="h-8 w-auto"
+                        className="w-auto h-8"
                         src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
                         alt="Workflow"
                     />
                     </div>
-                    <div className="mt-5 flex-1 h-0 px-2 overflow-y-auto">
-                    <nav className="h-full flex flex-col">
+                    <div className="flex-1 h-0 px-2 mt-5 overflow-y-auto">
+                    <nav className="flex flex-col h-full">
                         <div className="space-y-1">
                         {sidebarNavigation.map((item) => (
                             <a

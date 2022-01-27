@@ -12,7 +12,7 @@ export default {
   },
   decorators: [],
   parameters: { 
-    // jest: ['FullStack.test.tsx'],
+    jest: ['FullStack.test.tsx'],
     actions: { argTypesRegex: '^on.*' },
     // initialState: {
     //   defaultValue: {
@@ -31,6 +31,9 @@ const Template: Story<FullStackProps> = (args) => <FullStack {...args} ><p>child
 // Default scenario
 export const Default = Template.bind({})
 Default.args = {};
+Default.parameters = {
+  jest: ['FullStack.test.tsx']
+};
 
 export const Closed = Template.bind({})
 Closed.args = {};

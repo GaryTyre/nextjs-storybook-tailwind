@@ -1,11 +1,12 @@
-import { Popover } from '@headlessui/react'
+import React, { Fragment } from 'react';
+import { Popover } from '@headlessui/react';
 import {
     ChartBarIcon,
     CursorClickIcon,
     ShieldCheckIcon,
     ViewGridIcon,
     XIcon,
-  } from '@heroicons/react/outline'
+  } from '@heroicons/react/outline';
 
 const solutions = [
     {

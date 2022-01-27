@@ -4,6 +4,10 @@ import * as NextImage from "next/image";
 
 import { setupWorker, rest } from "msw";
 
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../.jest-test-results.json';
+
 if (typeof global.process === "undefined") {
   const worker = setupWorker(
     rest.get("http://localhost:3000/api/hello", (req, res, ctx) => {
@@ -29,3 +33,9 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  withTests({
+    results,
+  }),
+];

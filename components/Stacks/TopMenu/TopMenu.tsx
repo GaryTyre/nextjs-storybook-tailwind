@@ -1,4 +1,5 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
+
 import { Popover, Transition } from '@headlessui/react'
 import {
   MenuIcon,
@@ -11,22 +12,22 @@ export default function TopMenu() {
   return (
     <Popover className="relative bg-white">
       <div className="relative z-20">
-    <div className="absolute inset-0 shadow  pointer-events-none" aria-hidden="true" />
-        <div className="w-full mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+    <div className="absolute inset-0 shadow pointer-events-none" aria-hidden="true" />
+        <div className="flex items-center justify-between w-full px-4 py-5 mx-auto sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
           <div>
             <a href="#" className="flex">
               <span className="sr-only">Workflow</span>
               <img
-                className="h-8 w-auto sm:h-10"
+                className="w-auto h-8 sm:h-10"
                 src="https://media-exp1.licdn.com/dms/image/C510BAQHThKCx51J1GQ/company-logo_200_200/0/1519870029475?e=1651104000&v=beta&t=xfUhWsU-_P0O1P0hHo3YV_JXIvZX8wqgmTstBJMp9KM"
                 alt=""
               />
             </a>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
-            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <div className="-my-2 -mr-2 md:hidden">
+            <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
-              <MenuIcon className="h-6 w-6" aria-hidden="true" />
+              <MenuIcon className="w-6 h-6" aria-hidden="true" />
             </Popover.Button>
           </div>
           <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
@@ -47,7 +48,7 @@ export default function TopMenu() {
       >
         <Popover.Panel
           focus
-          className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="absolute inset-x-0 top-0 z-30 p-2 transition origin-top-right transform md:hidden"
         >
           <NavigationMobile></NavigationMobile>
         </Popover.Panel>

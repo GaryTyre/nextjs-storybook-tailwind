@@ -1,6 +1,6 @@
 
+import React, { Fragment } from 'react'
 
-import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import {
@@ -77,18 +77,18 @@ export default function Navigation() {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 -translate-y-1"
                     >
-                      <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
-                        <div className="w-full mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
+                      <Popover.Panel className="absolute inset-x-0 z-10 hidden transform bg-white shadow-lg md:block top-full">
+                        <div className="grid w-full px-4 py-6 mx-auto gap-y-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                           {solutions.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50"
+                              className="flex flex-col justify-between p-3 -m-3 rounded-lg hover:bg-gray-50"
                             >
                               <div className="flex md:h-full lg:flex-col">
                                 <div className="flex-shrink-0">
-                                  <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                                  <span className="inline-flex items-center justify-center w-10 h-10 text-white bg-indigo-500 rounded-md sm:h-12 sm:w-12">
+                                    <item.icon className="w-6 h-6" aria-hidden="true" />
                                   </span>
                                 </div>
                                 <div className="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
@@ -105,14 +105,14 @@ export default function Navigation() {
                           ))}
                         </div>
                         <div className="bg-gray-50">
-                          <div className="w-full mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
+                          <div className="w-full px-4 py-5 mx-auto space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
                             {callsToAction.map((item) => (
                               <div key={item.name} className="flow-root">
                                 <a
                                   href={item.href}
-                                  className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                  className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100"
                                 >
-                                  <item.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                                  <item.icon className="flex-shrink-0 w-6 h-6 text-gray-400" aria-hidden="true" />
                                   <span className="ml-3">{item.name}</span>
                                 </a>
                               </div>
