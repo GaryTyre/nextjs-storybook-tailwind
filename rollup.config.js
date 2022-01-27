@@ -10,16 +10,20 @@ const packageJson = require("./package.json");
 
 export default {
   input: "components/index.ts",
+  external: [
+    ...Object.keys(packageJson.dependencies || {}),
+    ...Object.keys(packageJson.peerDependencies || {})
+  ],  
   output: [
     {
       file: packageJson.main,
       format: "cjs",
-      sourcemap: true
+      sourcemap: 'inline'
     },
     {
       file: packageJson.module,
       format: "esm",
-      sourcemap: true
+      sourcemap: 'inline'
     }
   ],
   plugins: [
@@ -28,7 +32,9 @@ export default {
     commonjs(),
     typescript({ 
         tsconfig: "./tsconfig.rollup.json",
-        useTsconfigDeclarationDir: true 
+        useTsconfigDeclarationDir: true,
+        declaration: true,
+        declarationDir: 'dist',
     }),
     postcss({
         config: {

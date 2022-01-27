@@ -1,9 +1,7 @@
 
 import React from 'react';
 
-import { MenuItem } from '../components/Stacks/StackTypes';
-
-function Index() {
+function TableDemoComponent() {
   return (
     <div className="flex flex-col">
     <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -76,4 +74,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default TableDemoComponent;

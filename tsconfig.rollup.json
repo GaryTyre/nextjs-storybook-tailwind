@@ -2,5 +2,15 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "jsx": "react"
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/stories/**"
+  ]
 }
