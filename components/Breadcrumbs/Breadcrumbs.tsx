@@ -1,5 +1,5 @@
-import React from 'react'
-import { ChevronRightIcon, HomeIcon } from '@heroicons/react/solid'
+import React from 'react';
+import { ChevronRightIcon, HomeIcon } from '@heroicons/react/solid';
 
 const pages = [
   { name: 'Supplier List', href: '#', current: false },

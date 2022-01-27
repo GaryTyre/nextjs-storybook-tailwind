@@ -1,50 +1,19 @@
 
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
 
-import { Popover, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import {
-    ChartBarIcon,
-    CheckCircleIcon,
-    CursorClickIcon,
-    PhoneIcon,
-    PlayIcon,
-    ShieldCheckIcon,
-    ViewGridIcon,
-  } from '@heroicons/react/outline'
-
-const solutions = [
-    {
-      name: 'Analytics',
-      description: 'Get a better understanding of where your traffic is coming from.',
-      href: '#',
-      icon: ChartBarIcon,
-    },
-    {
-      name: 'Engagement',
-      description: 'Speak directly to your customers in a more meaningful way.',
-      href: '#',
-      icon: CursorClickIcon,
-    },
-    { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
-    {
-      name: 'Integrations',
-      description: "Connect with third-party tools that you're already using.",
-      href: '#',
-      icon: ViewGridIcon,
-    },
-  ]
-  const callsToAction = [
-    { name: 'Watch Demo', href: '#', icon: PlayIcon },
-    { name: 'View All Products', href: '#', icon: CheckCircleIcon },
-    { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-  ]
+import { Popover, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import { Menu } from '../StackTypes';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-
-export default function Navigation() {
+export type NavigationProps = {
+  menus: Menu[];
+}
+export default function Navigation({ menus }: NavigationProps) {
+  const solutions = menus?.find(m => m.id === 'SOLUTIONS')?.items;
+  const calls = menus?.find(m => m.id === 'CTAS')?.items;
     return (
         <Popover.Group as="nav" className="flex space-x-10">
               <Popover>
@@ -79,7 +48,7 @@ export default function Navigation() {
                     >
                       <Popover.Panel className="absolute inset-x-0 z-10 hidden transform bg-white shadow-lg md:block top-full">
                         <div className="grid w-full px-4 py-6 mx-auto gap-y-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
-                          {solutions.map((item) => (
+                          {solutions?.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
@@ -106,7 +75,7 @@ export default function Navigation() {
                         </div>
                         <div className="bg-gray-50">
                           <div className="w-full px-4 py-5 mx-auto space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
-                            {callsToAction.map((item) => (
+                            {calls?.map((item) => (
                               <div key={item.name} className="flow-root">
                                 <a
                                   href={item.href}

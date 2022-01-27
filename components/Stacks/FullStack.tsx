@@ -1,29 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { MenuAlt2Icon } from '@heroicons/react/outline'
 import TopMenu from './TopMenu/TopMenu'
 import { Breadcrumbs}  from '../Breadcrumbs'
 import SideMenu from './SideMenu/SideMenu'
 import SideMenuMobile from './SideMenu/SideMenuMobile'
 import { ContentArea } from '../ContentArea/ContentArea'
+import { StackMenus, TOPMENU, SIDEMENU } from './StackTypes'
 
 export type FullStackProps = {
   children: React.ReactNode;
+  menus: StackMenus;
 }
 
 export const FullStack: React.FC<FullStackProps> = ({
-  children
+  children,
+  menus,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const closeMobileSideMenu = () => {
     setMobileMenuOpen(false);
   };
+  const sideMenu = menus?.find(m => m.id === 'SIDEMENU');
 
   return (
-    <>
-      <TopMenu></TopMenu>
+    <Fragment>
+      <TopMenu menus={menus}></TopMenu>
       <div className="flex h-full">
-        <SideMenu></SideMenu>
+        <SideMenu menu={sideMenu}></SideMenu>
         <SideMenuMobile isOpen={mobileMenuOpen} closeMenu={closeMobileSideMenu}></SideMenuMobile>
 
         <div className="flex flex-col flex-1 overflow-hidden">
@@ -46,7 +50,7 @@ export const FullStack: React.FC<FullStackProps> = ({
           </ContentArea>
         </div>
       </div>
-    </>
+    </Fragment>
   )
 }
 

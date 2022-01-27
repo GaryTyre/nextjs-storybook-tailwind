@@ -7,8 +7,12 @@ import {
 import TopMenuUserMenu from './UserMenu'
 import Navigation from './Navigation'
 import NavigationMobile from './NavigationMobile'
+import { Menu } from '../StackTypes'
 
-export default function TopMenu() {
+export type TopMenuProps = {
+  menus: Menu[];
+}
+export default function TopMenu({ menus }: TopMenuProps) {
   return (
     <Popover className="relative bg-white">
       <div className="relative z-20">
@@ -31,7 +35,7 @@ export default function TopMenu() {
             </Popover.Button>
           </div>
           <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
-            <Navigation></Navigation>
+            <Navigation menus={menus}></Navigation>
             <TopMenuUserMenu></TopMenuUserMenu>
           </div>
         </div>

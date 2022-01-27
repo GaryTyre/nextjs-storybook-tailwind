@@ -1,25 +1,87 @@
+
+import React from 'react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import {
+  CogIcon,
+  CollectionIcon,
+  MapIcon,
+  UserGroupIcon,
+  RssIcon,
+  CheckIcon,
+    ChartBarIcon,
+    CheckCircleIcon,
+    CursorClickIcon,
+    PhoneIcon,
+    PlayIcon,
+    ShieldCheckIcon,
+    ViewGridIcon,
+  } from '@heroicons/react/outline';
+const solutions: MenuItem[] = [
+    {
+      name: 'Analytics',
+      description: 'Get a better understanding of where your traffic is coming from.',
+      href: '#',
+      icon: ChartBarIcon,
+    },
+    {
+      name: 'Engagement',
+      description: 'Speak directly to your customers in a more meaningful way.',
+      href: '#',
+      icon: CursorClickIcon,
+    },
+    { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
+    {
+      name: 'Integrations',
+      description: "Connect with third-party tools that you're already using.",
+      href: '#',
+      icon: ViewGridIcon,
+    },
+  ]  
+  
+  const callsToAction: MenuItem[] = [
+    { name: 'Watch Demo', href: '#', icon: PlayIcon },
+    { name: 'View All Products', href: '#', icon: CheckCircleIcon },
+    { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  ]
+
+  const sidebarNavigation = [
+    { name: 'Supplier List', href: '#', icon: CollectionIcon, current: true },
+    { name: 'Customer\nApproved List', href: '#', icon: ViewGridIcon, current: false },
+    { name: 'Supplier Approval', href: '#', icon: CheckIcon, current: false },
+    { name: 'Compliance', href: '#', icon: CheckCircleIcon, current: false },
+    { name: 'Contacts', href: '#', icon: UserGroupIcon, current: false },
+    { name: 'Maps', href: '#', icon: MapIcon, current: false },
+    { name: 'Activity', href: '#', icon: RssIcon, current: false },
+    { name: 'Admin', href: '#', icon: CogIcon, current: false },
+  ]
+  const solEntity = { id: "SOLUTIONS", items: solutions };
+  const callEntity = { id: "CTAS", items: callsToAction };
+  const sidebarNavigationEntity = { id: "SIDEMENU", items: sidebarNavigation };
+
+
 import FullStack from '../components/Stacks/FullStack'
+import { MenuItem, StackMenus } from '../components/Stacks/StackTypes';
 
 function Index() {
   return (
-    <FullStack>
+    <FullStack menus={[solEntity, callEntity, sidebarNavigationEntity]}>
       <div className="flex flex-col">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                       Name
                     </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                       Title
                     </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                       Status
                     </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                       Role
                     </th>
                     <th scope="col" className="relative px-6 py-3">
@@ -34,8 +96,8 @@ function Index() {
                     <tr key={i}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10">
-                          <img className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="" />
+                        <div className="flex-shrink-0 w-10 h-10">
+                          <img className="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="" />
                         </div>
                         <div className="ml-4">
                           <div className="text-sm font-medium text-gray-900">
@@ -52,14 +114,14 @@ function Index() {
                       <div className="text-sm text-gray-500">Optimization</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                      <span className="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                         Active
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                       Admin
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                       <a href="#" className="text-indigo-600 hover:text-indigo-900">Edit</a>
                     </td>
                   </tr>

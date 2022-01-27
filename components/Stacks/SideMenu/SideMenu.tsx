@@ -1,37 +1,20 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
-import {
-  CogIcon,
-  CollectionIcon,
-  MapIcon,
-  UserGroupIcon,
-  ViewGridIcon,
-  RssIcon,
-  CheckCircleIcon,
-  CheckIcon
-} from '@heroicons/react/outline'
+import { Menu } from '../StackTypes'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const sidebarNavigation = [
-    { name: 'Supplier List', href: '#', icon: CollectionIcon, current: true },
-    { name: 'Customer\nApproved List', href: '#', icon: ViewGridIcon, current: false },
-    { name: 'Supplier Approval', href: '#', icon: CheckIcon, current: false },
-    { name: 'Compliance', href: '#', icon: CheckCircleIcon, current: false },
-    { name: 'Contacts', href: '#', icon: UserGroupIcon, current: false },
-    { name: 'Maps', href: '#', icon: MapIcon, current: false },
-    { name: 'Activity', href: '#', icon: RssIcon, current: false },
-    { name: 'Admin', href: '#', icon: CogIcon, current: false },
-  ]
-
-export default function SideMenu() {
+  export type SideMenuProps = {
+    menu: Menu;
+  }
+export default function SideMenu({ menu }: SideMenuProps) {
     return (
-        <div className="hidden w-28 bg-gray-700 overflow-y-auto md:block">
-          <div className="w-full py-2 flex flex-col items-center">
+        <div className="hidden overflow-y-auto bg-gray-700 w-28 md:block">
+          <div className="flex flex-col items-center w-full py-2">
             <div className="flex-1 w-full px-2 space-y-1">
-              {sidebarNavigation.map((item) => (
+              {menu?.items.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
